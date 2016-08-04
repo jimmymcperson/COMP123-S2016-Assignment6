@@ -23,5 +23,10 @@ namespace comp123_s2016_assignment6
         {
             InitializeComponent();
         }
+
+        private void NumPadTableLayoutPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

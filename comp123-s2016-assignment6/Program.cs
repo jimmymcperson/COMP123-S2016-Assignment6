@@ -8,9 +8,9 @@ using System.Windows.Forms;
  * ==================================================================================================
  * Author: Jonathan Hao
  * Student#: 300869273
- * Date Modified: August 1, 2016
+ * Date Modified: August 3, 2016
  * Description: This is a demonstration of Windows Forms applications.
- * Version: 0.0.1 - Initial Commit
+ * Version: 0.0.2 - Made layout for calculator
  * ==================================================================================================
  */
 namespace comp123_s2016_assignment6
