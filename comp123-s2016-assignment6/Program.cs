@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -8,10 +9,10 @@ using System.Windows.Forms;
  * ==================================================================================================
  * Author: Jonathan Hao
  * Student#: 300869273
- * Date Modified: August 3, 2016
+ * Date Modified: August 4, 2016
  * Description: This is a demonstration of Windows Forms applications.
- * Version: 0.0.2 - Changed properties of some text boxes, added DecimalButton,
- *                  added functionality to ClearButton, started coding the number buttons.
+ * Version: 0.0.3 - Renamed controls, added BackspaceButton, added functionality to number buttons
+ * on NumPadTableLayoutPanel
  * ==================================================================================================
  */
 namespace comp123_s2016_assignment6
@@ -41,7 +42,9 @@ namespace comp123_s2016_assignment6
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new BMICalculator());
+            BMICalculator mainForm = new BMICalculator();
+            Application.Run(mainForm);
+
         }
     }
 }
