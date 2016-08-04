@@ -10,7 +10,8 @@ using System.Windows.Forms;
  * Student#: 300869273
  * Date Modified: August 3, 2016
  * Description: This is a demonstration of Windows Forms applications.
- * Version: 0.0.2 - Made layout for calculator
+ * Version: 0.0.2 - Changed properties of some text boxes, added DecimalButton,
+ *                  added functionality to ClearButton, started coding the number buttons.
  * ==================================================================================================
  */
 namespace comp123_s2016_assignment6
@@ -21,7 +22,7 @@ namespace comp123_s2016_assignment6
     *
     * @class Program
     */
-    static class Program
+    public static class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -35,8 +36,9 @@ namespace comp123_s2016_assignment6
         * @method Main
         * @returns {void}
         */
-        static void Main()
+        public static void Main()
         {
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new BMICalculator());
