@@ -378,6 +378,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BMIResultsTextBox.BackColor = System.Drawing.Color.White;
+            this.BMIResultsTextBox.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BMIResultsTextBox.ForeColor = System.Drawing.Color.Black;
             this.BMIResultsTextBox.Location = new System.Drawing.Point(143, 150);
             this.BMIResultsTextBox.Multiline = true;
@@ -394,10 +395,10 @@
             this.ImperialRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ImperialRadioButton.Location = new System.Drawing.Point(3, 393);
             this.ImperialRadioButton.Name = "ImperialRadioButton";
-            this.ImperialRadioButton.Size = new System.Drawing.Size(125, 22);
+            this.ImperialRadioButton.Size = new System.Drawing.Size(129, 22);
             this.ImperialRadioButton.TabIndex = 18;
             this.ImperialRadioButton.TabStop = true;
-            this.ImperialRadioButton.Text = "Imperial (lb./in.)";
+            this.ImperialRadioButton.Text = "Imperial (in., lb.)";
             this.ImperialRadioButton.UseVisualStyleBackColor = true;
             this.ImperialRadioButton.Enter += new System.EventHandler(this.Control_Enter);
             // 
@@ -407,9 +408,9 @@
             this.MetricRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MetricRadioButton.Location = new System.Drawing.Point(143, 393);
             this.MetricRadioButton.Name = "MetricRadioButton";
-            this.MetricRadioButton.Size = new System.Drawing.Size(114, 22);
+            this.MetricRadioButton.Size = new System.Drawing.Size(118, 22);
             this.MetricRadioButton.TabIndex = 19;
-            this.MetricRadioButton.Text = "Metric (kg/m)";
+            this.MetricRadioButton.Text = "Metric (m, kg)";
             this.MetricRadioButton.UseVisualStyleBackColor = true;
             this.MetricRadioButton.Enter += new System.EventHandler(this.Control_Enter);
             // 

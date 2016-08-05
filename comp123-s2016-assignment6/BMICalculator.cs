@@ -163,20 +163,45 @@ namespace comp123_s2016_assignment6
             if (!(String.Equals(HeightTextBox.Text, "0") || HeightTextBox.Text.EndsWith(".") ||
                 WeightTextBox.Text.EndsWith(".")))
             {
+
+                WeightValue = Convert.ToDouble(WeightTextBox.Text);
+                HeightValue = Convert.ToDouble(HeightTextBox.Text);
+
                 if (ImperialRadioButton.Checked == true)
                 {
-                    WeightValue = Convert.ToDouble(WeightTextBox.Text);
-                    HeightValue = Convert.ToDouble(HeightTextBox.Text);
-                    CalculatedBMITextBox.Text = Convert.ToString(CalculatedResult);
+                    CalculatedResult = (WeightValue * 703) / (HeightValue * HeightValue);
                 }
                 else if (MetricRadioButton.Checked == true)
                 {
-                    Debug.WriteLine("metric");
+                    CalculatedResult = (WeightValue) / (HeightValue * HeightValue);
                 }
                 else
                 {
                     Debug.WriteLine("uhoh120ish");
                     //error window here
+                }
+                CalculatedResult = Math.Round(CalculatedResult, 1);
+                CalculatedBMITextBox.Text = Convert.ToString(CalculatedResult);
+                BMIResultsTextBox.Text = String.Format("Underweight: < 18.5\r" +
+                                                       "Normal: 18.5~24.9\r" +
+                                                       "Overweight: 25~29.9\r" +
+                                                       "Obese: >= 30");
+                BMIResultsTextBox.Text += String.Format("\r\n\r\nYour BMI is {0}.", (Convert.ToString(CalculatedResult)));
+               if (CalculatedResult < 18.5)
+                {
+                    BMIResultsTextBox.Text += String.Format("\r\nYou are underweight.");
+                }
+               else if ((CalculatedResult > 18.5) && (CalculatedResult < 24.9))
+                {
+                    BMIResultsTextBox.Text += String.Format("\r\nYou have a normal BMI.");
+                }
+               else if ((CalculatedResult > 25) && (CalculatedResult < 29.9))
+                {
+                    BMIResultsTextBox.Text += String.Format("\r\nYou are overweight.");
+                }
+               else if (CalculatedResult >= 30)
+                {
+                    BMIResultsTextBox.Text += String.Format("\r\nYou are obese.");
                 }
             }
             else
