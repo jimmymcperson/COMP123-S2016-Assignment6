@@ -23,7 +23,10 @@ namespace comp123_s2016_assignment6
 
         // FIELDS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-        private Control _lastFocusedControl;
+        private Control _lastFocusedControl;  //used for NumPad to work
+        private double _calculatedResult;
+        private double _weightValue;
+        private double _heightValue;
 
         // PROPERTIES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -45,6 +48,59 @@ namespace comp123_s2016_assignment6
             }
         }
 
+        /** <summary>
+         * This is the property that read/writes the _calculatedResult field.
+         * </summary>
+         *
+         * @property {double} CalculatedResult
+         */
+        public double CalculatedResult
+        {
+            get
+            {
+                return _calculatedResult;
+            }
+            set
+            {
+                _calculatedResult = value;
+            }
+        }
+
+        /** <summary>
+         * This is the property that read/writes the _weightValue field.
+         * </summary>
+         *
+         * @property {double} WeightValue
+         */
+        public double WeightValue
+        {
+            get
+            {
+                return _weightValue;
+            }
+            set
+            {
+                _weightValue = value;
+            }
+        }
+
+        /** <summary>
+         * This is the property that read/writes the _heightValue field.
+         * </summary>
+         *
+         * @property {double} HeightValue
+         */
+        public double HeightValue
+        {
+            get
+            {
+                return _heightValue;
+            }
+            set
+            {
+                _heightValue = value;
+            }
+        }
         // CONSTRUCTORS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /** <summary>
@@ -74,7 +130,21 @@ namespace comp123_s2016_assignment6
         */
         private void BackspaceButton_Click(object sender, EventArgs e)
         {
-            
+            if (LastFocusedControl == HeightTextBox || LastFocusedControl == WeightTextBox)
+            {
+                if (!(String.Equals(LastFocusedControl.Text, "0")))
+                {
+                    if (LastFocusedControl.Text.Length == 1)
+                    {
+                        LastFocusedControl.Text = "0";
+                    }
+                    else
+                    {
+                        LastFocusedControl.Text = LastFocusedControl.Text.Remove(LastFocusedControl.Text.Length - 1);
+                    }
+                    LastFocusedControl.Focus();
+                }
+            }
         }
 
         /** <Summary>
@@ -90,7 +160,30 @@ namespace comp123_s2016_assignment6
         */
         private void CalculateBMIButton_Click(object sender, EventArgs e)
         {
-
+            if (!(String.Equals(HeightTextBox.Text, "0") || HeightTextBox.Text.EndsWith(".") ||
+                WeightTextBox.Text.EndsWith(".")))
+            {
+                if (ImperialRadioButton.Checked == true)
+                {
+                    WeightValue = Convert.ToDouble(WeightTextBox.Text);
+                    HeightValue = Convert.ToDouble(HeightTextBox.Text);
+                    CalculatedBMITextBox.Text = Convert.ToString(CalculatedResult);
+                }
+                else if (MetricRadioButton.Checked == true)
+                {
+                    Debug.WriteLine("metric");
+                }
+                else
+                {
+                    Debug.WriteLine("uhoh120ish");
+                    //error window here
+                }
+            }
+            else
+            {
+                Debug.WriteLine("uhoh126ish");
+                //error window here
+            }
         }
 
         /** <Summary>
@@ -140,7 +233,15 @@ namespace comp123_s2016_assignment6
         */
         private void DecimalButton_Click(object sender, EventArgs e)
         {
-
+            if (LastFocusedControl == HeightTextBox || LastFocusedControl == WeightTextBox)
+            {
+                if (!(String.Equals(LastFocusedControl.Text, "0") || LastFocusedControl.Text.Contains(".")))
+                {
+                    LastFocusedControl.Text += ".";
+                    LastFocusedControl.Focus();
+                }
+                LastFocusedControl.Focus();
+            }
         }
 
         /** <summary>
@@ -157,35 +258,19 @@ namespace comp123_s2016_assignment6
         private void NumPad_Click(object sender, EventArgs e)
         {
             Button numberClicked = sender as Button;
-            if (LastFocusedControl == HeightTextBox)
+            if (LastFocusedControl == HeightTextBox || LastFocusedControl == WeightTextBox)
             {
-                if (String.Equals(HeightTextBox.Text, "0"))
+                if (String.Equals(LastFocusedControl.Text, "0"))
                 {
-                    HeightTextBox.Clear();
-                    HeightTextBox.Text = numberClicked.Text;
-                    HeightTextBox.Focus();
+                    LastFocusedControl.Text = numberClicked.Text;
+                    LastFocusedControl.Focus();
                 }
                 else
                 {
-                    HeightTextBox.Text += numberClicked.Text;
-                    HeightTextBox.Focus();
+                    LastFocusedControl.Text += numberClicked.Text;
+                    LastFocusedControl.Focus();
                 }
-            }
-            if (LastFocusedControl == WeightTextBox)
-            {
-                if (String.Equals(WeightTextBox.Text, "0"))
-                {
-                    WeightTextBox.Clear();
-                    WeightTextBox.Text = numberClicked.Text;
-                    WeightTextBox.Focus();
-                }
-                else
-                {
-                    WeightTextBox.Text += numberClicked.Text;
-                    WeightTextBox.Focus();
-                }
-            }
-                
+            }   
         }
 
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

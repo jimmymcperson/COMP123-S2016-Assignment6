@@ -11,8 +11,8 @@ using System.Windows.Forms;
  * Student#: 300869273
  * Date Modified: August 4, 2016
  * Description: This is a demonstration of Windows Forms applications.
- * Version: 0.0.3 - Renamed controls, added BackspaceButton, added functionality to number buttons
- * on NumPadTableLayoutPanel
+ * Version: 0.0.4 - Refactored NumPad_Click, added functionality to DecimalButton, BackspaceButton,
+ * started coding CalculateBMIButton
  * ==================================================================================================
  */
 namespace comp123_s2016_assignment6
