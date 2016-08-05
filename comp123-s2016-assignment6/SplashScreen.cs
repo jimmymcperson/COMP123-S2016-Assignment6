@@ -14,11 +14,18 @@ using System.Windows.Forms;
  * Student#: 300869273
  * Date Modified: August 5, 2016
  * Description: This is a demonstration of Windows Forms applications.
- * Version: 0.1.1 - Minor edits
+ * Version: 0.1.2 - Minor edits
  * ==================================================================================================
  */
 namespace comp123_s2016_assignment6
 {
+    /** <summary>
+    * This class defines a form for a splash screen.
+    * </summary>
+    * 
+    * @class SplashScreen
+    * @extends Form
+    */
     public partial class SplashScreen : Form
     {
         public SplashScreen()
