@@ -9,6 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*
+ * ==================================================================================================
+ * Author: Jonathan Hao
+ * Student#: 300869273
+ * Date Modified: August 5, 2016
+ * Description: This is a demonstration of Windows Forms applications.
+ * Version: 0.1.1 - Minor edits
+ * ==================================================================================================
+ */
 namespace comp123_s2016_assignment6
 {
     /** <summary>
@@ -27,6 +36,7 @@ namespace comp123_s2016_assignment6
         private double _calculatedResult;
         private double _weightValue;
         private double _heightValue;
+        private DialogResult _exitConfirmationResult;
 
         // PROPERTIES ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -99,6 +109,24 @@ namespace comp123_s2016_assignment6
             set
             {
                 _heightValue = value;
+            }
+        }
+
+        /**<summary>
+        * This property read/writes the _exitConfirmationResult property.
+        * </summary>
+        *
+        * @property ExitConfirmationResult
+        */
+        public DialogResult ExitConfirmationResult
+        {
+            get
+            {
+                return _exitConfirmationResult;
+            }
+            set
+            {
+                _exitConfirmationResult = value;
             }
         }
 
@@ -314,9 +342,8 @@ namespace comp123_s2016_assignment6
         */
         private void BMICalculator_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult Result;
-            Result = MessageBox.Show("Exit program?", "Exit", MessageBoxButtons.OKCancel);
-            if (Result == DialogResult.Cancel)
+            ExitConfirmationResult = MessageBox.Show("Exit program?", "Exit", MessageBoxButtons.OKCancel);
+            if (ExitConfirmationResult == DialogResult.Cancel)
             {
                 e.Cancel = true;
             }

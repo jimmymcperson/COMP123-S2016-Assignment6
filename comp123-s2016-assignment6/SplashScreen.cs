@@ -8,6 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/*
+ * ==================================================================================================
+ * Author: Jonathan Hao
+ * Student#: 300869273
+ * Date Modified: August 5, 2016
+ * Description: This is a demonstration of Windows Forms applications.
+ * Version: 0.1.1 - Minor edits
+ * ==================================================================================================
+ */
 namespace comp123_s2016_assignment6
 {
     public partial class SplashScreen : Form
