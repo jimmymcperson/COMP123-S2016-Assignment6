@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.MasterTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.ClearAllButton = new System.Windows.Forms.Button();
+            this.ResetButton = new System.Windows.Forms.Button();
             this.HeightLabel = new System.Windows.Forms.Label();
             this.WeightLabel = new System.Windows.Forms.Label();
             this.HeightTextBox = new System.Windows.Forms.TextBox();
@@ -61,7 +61,7 @@
             this.MasterTableLayoutPanel.ColumnCount = 2;
             this.MasterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.MasterTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.MasterTableLayoutPanel.Controls.Add(this.ClearAllButton, 1, 3);
+            this.MasterTableLayoutPanel.Controls.Add(this.ResetButton, 1, 3);
             this.MasterTableLayoutPanel.Controls.Add(this.HeightLabel, 0, 0);
             this.MasterTableLayoutPanel.Controls.Add(this.WeightLabel, 1, 0);
             this.MasterTableLayoutPanel.Controls.Add(this.HeightTextBox, 0, 1);
@@ -84,20 +84,20 @@
             this.MasterTableLayoutPanel.Size = new System.Drawing.Size(280, 418);
             this.MasterTableLayoutPanel.TabIndex = 0;
             // 
-            // ClearAllButton
+            // ResetButton
             // 
-            this.ClearAllButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.ResetButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClearAllButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearAllButton.Location = new System.Drawing.Point(143, 117);
-            this.ClearAllButton.Name = "ClearAllButton";
-            this.ClearAllButton.Size = new System.Drawing.Size(134, 27);
-            this.ClearAllButton.TabIndex = 6;
-            this.ClearAllButton.Text = "Clear All";
-            this.ClearAllButton.UseVisualStyleBackColor = true;
-            this.ClearAllButton.Click += new System.EventHandler(this.ClearAllButton_Click);
-            this.ClearAllButton.Enter += new System.EventHandler(this.Control_Enter);
+            this.ResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResetButton.Location = new System.Drawing.Point(143, 117);
+            this.ResetButton.Name = "ResetButton";
+            this.ResetButton.Size = new System.Drawing.Size(134, 27);
+            this.ResetButton.TabIndex = 6;
+            this.ResetButton.Text = "Reset";
+            this.ResetButton.UseVisualStyleBackColor = true;
+            this.ResetButton.Click += new System.EventHandler(this.ClearAllButton_Click);
+            this.ResetButton.Enter += new System.EventHandler(this.Control_Enter);
             // 
             // HeightLabel
             // 
@@ -427,6 +427,8 @@
             this.Name = "BMICalculator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BMICalculator";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BMICalculator_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.BMICalculator_FormClosed);
             this.MasterTableLayoutPanel.ResumeLayout(false);
             this.MasterTableLayoutPanel.PerformLayout();
             this.NumPadTableLayoutPanel.ResumeLayout(false);
@@ -446,7 +448,7 @@
         private System.Windows.Forms.TextBox CalculatedBMITextBox;
         private System.Windows.Forms.Button CalculateBMIButton;
         private System.Windows.Forms.TextBox BMIResultsTextBox;
-        private System.Windows.Forms.Button ClearAllButton;
+        private System.Windows.Forms.Button ResetButton;
         private System.Windows.Forms.TableLayoutPanel NumPadTableLayoutPanel;
         private System.Windows.Forms.Button ThreeButton;
         private System.Windows.Forms.Button TwoButton;

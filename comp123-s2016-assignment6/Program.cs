@@ -9,10 +9,10 @@ using System.Windows.Forms;
  * ==================================================================================================
  * Author: Jonathan Hao
  * Student#: 300869273
- * Date Modified: August 4, 2016
+ * Date Modified: August 5, 2016
  * Description: This is a demonstration of Windows Forms applications.
- * Version: 0.0.5 - Added functionality to CalculateBMIButton
- * todo: error forms, splash screen, more input validation (maxdigit, try catch) 
+ * Version: 0.0.6 -Added SplashScreen class, renamed ResetButton(previously ClearallButton), added 
+ * BMICalculator_FormClosing event, added BMICalculator_FormClosed event
  * ==================================================================================================
  */
 namespace comp123_s2016_assignment6
@@ -25,6 +25,8 @@ namespace comp123_s2016_assignment6
     */
     public static class Program
     {
+        public static SplashScreen splashForm;
+        public static BMICalculator mainForm;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -42,8 +44,11 @@ namespace comp123_s2016_assignment6
             
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            BMICalculator mainForm = new BMICalculator();
-            Application.Run(mainForm);
+
+            splashForm = new SplashScreen();
+            mainForm = new BMICalculator();
+
+            Application.Run(splashForm);
 
         }
     }

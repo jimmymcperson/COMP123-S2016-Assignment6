@@ -101,6 +101,7 @@ namespace comp123_s2016_assignment6
                 _heightValue = value;
             }
         }
+
         // CONSTRUCTORS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         /** <summary>
@@ -175,11 +176,7 @@ namespace comp123_s2016_assignment6
                 {
                     CalculatedResult = (WeightValue) / (HeightValue * HeightValue);
                 }
-                else
-                {
-                    Debug.WriteLine("uhoh120ish");
-                    //error window here
-                }
+
                 CalculatedResult = Math.Round(CalculatedResult, 1);
                 CalculatedBMITextBox.Text = Convert.ToString(CalculatedResult);
                 BMIResultsTextBox.Text = String.Format("Underweight: < 18.5\r" +
@@ -187,6 +184,7 @@ namespace comp123_s2016_assignment6
                                                        "Overweight: 25~29.9\r" +
                                                        "Obese: >= 30");
                 BMIResultsTextBox.Text += String.Format("\r\n\r\nYour BMI is {0}.", (Convert.ToString(CalculatedResult)));
+
                if (CalculatedResult < 18.5)
                 {
                     BMIResultsTextBox.Text += String.Format("\r\nYou are underweight.");
@@ -206,8 +204,7 @@ namespace comp123_s2016_assignment6
             }
             else
             {
-                Debug.WriteLine("uhoh126ish");
-                //error window here
+                MessageBox.Show("Invalid Input");
             }
         }
 
@@ -296,6 +293,42 @@ namespace comp123_s2016_assignment6
                     LastFocusedControl.Focus();
                 }
             }   
+        }
+
+        /**<summary>
+        * This method asks for confirmation before closing the application.
+        * </summary>
+        *
+        * @method BMICalculator_FormClosing
+        * @params {object} sender
+        * @params {FormClosingEventArgs} e
+        * @private
+        * @returns {void}
+        */
+        private void BMICalculator_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult Result;
+            Result = MessageBox.Show("Exit program?", "Exit", MessageBoxButtons.OKCancel);
+            if (Result == DialogResult.Cancel)
+            {
+                e.Cancel = true;
+            }
+
+        }
+
+        /**<summary>
+        * This method closes the application.
+        * </summary>
+        *
+        * @method BMICalculator_FormClosed
+        * @params {object} sender
+        * @params {FormClosedEventArgs} e
+        * @private
+        * @returns {void}
+        */
+        private void BMICalculator_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
 
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
