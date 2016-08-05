@@ -11,8 +11,7 @@ using System.Windows.Forms;
  * Student#: 300869273
  * Date Modified: August 5, 2016
  * Description: This is a demonstration of Windows Forms applications.
- * Version: 0.0.6 -Added SplashScreen class, renamed ResetButton(previously ClearallButton), added 
- * BMICalculator_FormClosing event, added BMICalculator_FormClosed event
+ * Version: 0.1.0 - Initial release
  * ==================================================================================================
  */
 namespace comp123_s2016_assignment6

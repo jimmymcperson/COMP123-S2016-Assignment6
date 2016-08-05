@@ -282,15 +282,22 @@ namespace comp123_s2016_assignment6
             Button numberClicked = sender as Button;
             if (LastFocusedControl == HeightTextBox || LastFocusedControl == WeightTextBox)
             {
-                if (String.Equals(LastFocusedControl.Text, "0"))
+                if (!(LastFocusedControl.Text.Length > 10))
                 {
-                    LastFocusedControl.Text = numberClicked.Text;
-                    LastFocusedControl.Focus();
+                    if (String.Equals(LastFocusedControl.Text, "0"))
+                    {
+                        LastFocusedControl.Text = numberClicked.Text;
+                        LastFocusedControl.Focus();
+                    }
+                    else
+                    {
+                        LastFocusedControl.Text += numberClicked.Text;
+                        LastFocusedControl.Focus();
+                    } 
                 }
                 else
                 {
-                    LastFocusedControl.Text += numberClicked.Text;
-                    LastFocusedControl.Focus();
+                    MessageBox.Show("Maximum digits reached.");
                 }
             }   
         }
